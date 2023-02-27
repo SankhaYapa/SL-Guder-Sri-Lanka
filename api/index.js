@@ -9,6 +9,7 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const conversaionRoute = require("./routes/conversaion");
 const messagesRoute = require("./routes/messages");
+
 const multer = require("multer");
 const path = require("path");
 
@@ -37,7 +38,8 @@ const upload = multer({ storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
     return res.status(200).json("File uploaded successfully");
-  } catch (error) {
+  }
+  catch (error) {
     console.log(error);
   }
 });

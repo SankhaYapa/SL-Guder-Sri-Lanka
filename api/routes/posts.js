@@ -93,4 +93,13 @@ router.get("/profile/:username", async (req, res) => {
     res.status(500).json(error);
   }
 });
+//get alll users posts
+router.get("/", async (req, res) => {
+  try {
+    const posts = await Post.find({});
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 module.exports = router;
